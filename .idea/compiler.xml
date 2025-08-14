@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="dubbo-samples-seata-account" />
+        <module name="dubbo-samples-seata-api" />
+        <module name="dubbo-samples-seata-business" />
+        <module name="dubbo-samples-seata-order" />
+        <module name="dubbo-samples-seata-stock" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>
