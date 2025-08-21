@@ -56,10 +56,23 @@ seata:
             heartbeat-period: 5000
             metadata-max-age-ms: 30000
             username: seata
-            password: f910b6f8
+            password: 58ca141a
             tokenValidityInMilliseconds: 1740000
     config:
         type: file
     client:
         load-balance:
-            type: WeightedRandomLoadBalance
+            type: RandomLoadBalance
+        routing:
+            location:
+                lat: 1.280000
+                lng: 103.850000
+            enabled: true
+            debug: true
+            fallback: false
+            region-router:
+                topN: 1
+            chain:
+                order: metadata-router
+            metadata-router:
+                expression: version = 1.0
