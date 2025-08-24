@@ -18,6 +18,9 @@ server:
 spring:
     application:
         name: BusinessApplication
+    cloud:
+        discovery:
+            enabled: true
 dubbo:
     application:
         logger: slf4j
@@ -38,18 +41,26 @@ seata:
         grouplist:
             default: ${seata.address:127.0.0.1}:${seata.port:8091}
     registry:
-        type: seata
-        seata:
-            server-addr: 10.21.76.32:8081
-            cluster: default
-            namespace: public
-            heartbeat-period: 5000
-            metadata-max-age-ms: 30000
-            username: seata
-            password: f910b6f8
-            tokenValidityInMilliseconds: 1740000
+        type: eureka
+        eureka:
+            serviceUrl: http://localhost:8761/eureka
+            application: default
+            weight: 1
     config:
         type: file
     client:
         load-balance:
-            type: WeightedRandomLoadBalance
+            type: RandomLoadBalance
+        routing:
+            location:
+                lat: 1.280000
+                lng: 103.850000
+            enabled: true
+            debug: true
+            fallback: false
+            region-router:
+                topN: 1
+            chain:
+                order: metadata-router
+            metadata-router:
+                expression: version = 1.0
