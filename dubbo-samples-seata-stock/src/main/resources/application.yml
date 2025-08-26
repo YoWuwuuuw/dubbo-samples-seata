@@ -61,12 +61,12 @@ seata:
         type: file
     client:
         load-balance:
-            type: WeightedRandomLoadBalance
+            type: RandomLoadBalance
         routing:
             location:
                 lat: 31.2304
                 lng: 121.4737
-            enabled: false
+            enabled: true
             debug: true
             fallback: false
             region-router:
