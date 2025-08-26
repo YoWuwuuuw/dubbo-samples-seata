@@ -62,6 +62,8 @@ seata:
             region-router:
                 topN: 1
             chain:
-                order: region-router
-            metadata-router:
-                expression: version = 1.0
+                order: metadata-router-1, metadata-router-2
+            metadata-router-1:
+                expression: version = 1.2
+            metadata-router-2:
+                expression: env = test
